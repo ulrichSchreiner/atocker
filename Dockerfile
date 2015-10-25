@@ -24,10 +24,13 @@ RUN curl -sSL https://github.com/atom/atom/releases/download/v${ATOM_VERSION}/at
 	&& dpkg -i /tmp/atom-amd64.deb \
 	&& rm -rf /tmp
 
+RUN curl https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz |tar -C /usr/local -xz
+RUN echo "PATH=/usr/local/go/bin:$PATH" > /etc/profile.d/go.sh
+
 RUN mkdir /devhome
-Add startup.sh /devhome/startup.sh
+ADD startup.sh /devhome/startup.sh
+ADD installgotools.sh /devhome/installgotools.sh
 
 VOLUME /work
 
-#CMD [ "atom", "--foreground" ]
 CMD /devhome/startup.sh
