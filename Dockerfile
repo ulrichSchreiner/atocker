@@ -6,6 +6,8 @@ RUN apt-get update && apt-get install -y \
     gconf2 \
     gconf-service \
     git \
+    mercurial \
+    bzr \
     gvfs-bin \
     libasound2 \
     libgconf-2-4 \
@@ -22,14 +24,29 @@ ENV ATOM_VERSION 1.0.19
 
 RUN curl -sSL https://github.com/atom/atom/releases/download/v${ATOM_VERSION}/atom-amd64.deb -o /tmp/atom-amd64.deb \
 	&& dpkg -i /tmp/atom-amd64.deb \
-	&& rm -rf /tmp
+	&& rm -rf /tmp/atom-amd64.deb
 
-RUN curl https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz |tar -C /usr/local -xz
-RUN echo "PATH=/usr/local/go/bin:$PATH" > /etc/profile.d/go.sh
+ENV GO_VERSION 1.5.1
+RUN curl https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz |tar -C /usr/local -xz
 
+RUN mkdir /go && cd /go && mkdir src pkg bin
+ENV GOPATH /go
+
+RUN /usr/local/go/bin/go get \
+    github.com/nsf/gocode \
+    github.com/golang/lint/golint \
+    golang.org/x/tools/cmd/goimports \
+    code.google.com/p/rog-go/exp/cmd/godef \
+    golang.org/x/tools/cmd/oracle \
+    golang.org/x/tools/cmd/stringer \
+    github.com/josharian/impl \
+    github.com/constabulary/gb/...
+
+RUN echo "PATH=/usr/local/go/bin:/go/bin:$PATH" > /etc/profile.d/go.sh
+    
 RUN mkdir /devhome
 ADD startup.sh /devhome/startup.sh
-ADD installgotools.sh /devhome/installgotools.sh
+ADD atom.sh /devhome/atom.sh
 
 VOLUME /work
 
