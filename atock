@@ -1,0 +1,20 @@
+#!/bin/sh
+
+xhost local:root
+docker rm -f atock
+
+ATOCK=$HOME/.config/atock
+mkdir -p $ATOCK
+
+docker run  \
+    -it \
+    -v /etc/localtime:/etc/localtime:ro \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -v $ATOCK:/devhome/.atom \
+    -v `pwd`:/work \
+    -e DISPLAY=$DISPLAY \
+    -e HOSTUSER=`id -un` \
+    -e HOSTGROUP=`id -gn` \
+    --name atock \
+    ulrichschreiner/atock #"$@"
+
