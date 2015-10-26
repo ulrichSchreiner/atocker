@@ -36,7 +36,7 @@ RUN /usr/local/go/bin/go get \
     github.com/nsf/gocode \
     github.com/golang/lint/golint \
     golang.org/x/tools/cmd/goimports \
-    code.google.com/p/rog-go/exp/cmd/godef \
+    github.com//rogpeppe/godef \
     golang.org/x/tools/cmd/oracle \
     golang.org/x/tools/cmd/stringer \
     github.com/josharian/impl \

@@ -1,16 +1,13 @@
 #!/bin/sh
 
-#xhost local:root
-#docker rm -f atock
-
 docker run  \
     -d \
     -v /etc/localtime:/etc/localtime:ro \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v `pwd`:/work \
-    -v `pwd`/.atock:/devhome/.atom \
+    -v `pwd`/.atocker:/devhome/.atom \
     -e DISPLAY=$DISPLAY \
     -e HOSTUSER=`id -un` \
     -e HOSTGROUP=`id -gn` \
-    ulrichschreiner/atock
+    ulrichschreiner/atocker
 

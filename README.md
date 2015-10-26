@@ -1,7 +1,7 @@
-# atock
+# atocker
 Atom Editor in Docker (with go Dev Tools installed)
 
-Use the given `atock` script to start an instance or create an alias:
+Use the given `atocker` script to start an instance or create an alias:
 
 ```
 alias atocker='docker run  \
@@ -13,6 +13,6 @@ alias atocker='docker run  \
     -e DISPLAY=$DISPLAY \
     -e HOSTUSER=`id -un` \
     -e HOSTGROUP=`id -gn` \
-    ulrichschreiner/atock >/dev/null 2>&1'
+    ulrichschreiner/atocker >/dev/null 2>&1'
 ```
 
