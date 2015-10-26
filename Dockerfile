@@ -1,4 +1,6 @@
 FROM debian:jessie
+MAINTAINER Ulrich Schreiner <ulrich.schreiner@gmail.com>
+# base copied from Jessica Frazell 
 
 RUN apt-get update && apt-get install -y \
     ca-certificates \
@@ -36,7 +38,7 @@ RUN /usr/local/go/bin/go get \
     github.com/nsf/gocode \
     github.com/golang/lint/golint \
     golang.org/x/tools/cmd/goimports \
-    github.com//rogpeppe/godef \
+    github.com/rogpeppe/godef \
     golang.org/x/tools/cmd/oracle \
     golang.org/x/tools/cmd/stringer \
     github.com/josharian/impl \
