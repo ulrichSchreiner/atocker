@@ -1,5 +1,13 @@
 # atocker
-Atom Editor in Docker (with go Dev Tools installed)
+Atom Editor in Docker. 
+
+This docker image contains [atom](http://atom.io), [go-plus](https://github.com/joefitzgerald/go-plus)  and many go tools. The configuration is conformant to
+[gb](http://getgb.io/), so your project directory should conform to [this](http://getgb.io/docs/project/) layout. If there is no `vendor` directory one will be created!
+
+You can start the editor in the project directory with `atocker`. 
+
+Please note: When using the given start script (or alias) the settings of the editor will be stored in the `.atocker` directory. You should put this directory in the
+`.gitignore` file. 
 
 [![Docker Repository on Quay.io](https://quay.io/repository/ulrichschreiner/atocker/status "Docker Repository on Quay.io")](https://quay.io/repository/ulrichschreiner/atocker)
 
