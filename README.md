@@ -1,6 +1,8 @@
 # atocker
 Atom Editor in Docker (with go Dev Tools installed)
 
+[![Docker Repository on Quay.io](https://quay.io/repository/ulrichschreiner/atocker/status "Docker Repository on Quay.io")](https://quay.io/repository/ulrichschreiner/atocker)
+
 Use the given `atocker` script to start an instance or create an alias:
 
 ```
@@ -13,6 +15,6 @@ alias atocker='docker run  \
     -e DISPLAY=$DISPLAY \
     -e HOSTUSER=`id -un` \
     -e HOSTGROUP=`id -gn` \
-    ulrichschreiner/atocker >/dev/null 2>&1'
+    quay.io/ulrichschreiner/atocker >/dev/null 2>&1'
 ```
 
