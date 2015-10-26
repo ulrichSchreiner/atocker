@@ -1,7 +1,7 @@
 # atocker
 Atom Editor in Docker. 
 
-This docker image contains [atom](http://atom.io), [go-plus](https://github.com/joefitzgerald/go-plus)  and many go tools. The configuration is conformant to
+This docker image contains [atom](http://atom.io), [go-plus](https://github.com/joefitzgerald/go-plus)  and many go tools. The configuration conforms to
 [gb](http://getgb.io/), so your project directory should conform to [this](http://getgb.io/docs/project/) layout. If there is no `vendor` directory one will be created!
 
 You can start the editor in the project directory with `atocker`. 
