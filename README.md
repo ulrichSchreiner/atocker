@@ -9,7 +9,7 @@ alias atocker='docker run  \
     -v /etc/localtime:/etc/localtime:ro \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v `pwd`:/work \
-    -v `pwd`/.atock:/devhome/.atom \
+    -v `pwd`/.atocker:/devhome/.atom \
     -e DISPLAY=$DISPLAY \
     -e HOSTUSER=`id -un` \
     -e HOSTGROUP=`id -gn` \
