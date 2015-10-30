@@ -23,6 +23,7 @@ alias atocker='docker run  \
     -e DISPLAY=$DISPLAY \
     -e HOSTUSER=`id -un` \
     -e HOSTGROUP=`id -gn` \
+    -e HOSTUSERID=`id -u` \
     quay.io/ulrichschreiner/atocker >/dev/null 2>&1'
 ```
 

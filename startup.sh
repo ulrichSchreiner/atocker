@@ -1,7 +1,7 @@
 #!/bin/sh
 
 groupadd $HOSTGROUP
-useradd $HOSTUSER -g $HOSTGROUP -M -d /devhome
+useradd $HOSTUSER -u $HOSTUSERID -g $HOSTGROUP -M -d /devhome
 chown -R $HOSTUSER:$HOSTGROUP /devhome
 chmod 777 /tmp
    

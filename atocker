@@ -9,5 +9,6 @@ docker run  \
     -e DISPLAY=$DISPLAY \
     -e HOSTUSER=`id -un` \
     -e HOSTGROUP=`id -gn` \
+    -e HOSTUSERID=`id -u` \
     ulrichschreiner/atocker
 
