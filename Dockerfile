@@ -49,6 +49,7 @@ RUN echo "PATH=/usr/local/go/bin:/go/bin:$PATH" > /etc/profile.d/go.sh
 RUN mkdir /devhome
 ADD startup.sh /devhome/startup.sh
 ADD atom.sh /devhome/atom.sh
+ADD config.cson /devhome/config.cson
 
 VOLUME /work
 
