@@ -1,0 +1,23 @@
+"*":
+  welcome:
+    showOnStartup: false
+  core:
+    themes: [
+      "atom-light-ui"
+      "atom-light-syntax"
+    ]
+    ignoredNames: [
+      ".atocker"
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      ".Trash-*"
+    ]
+  editor:
+    invisibles: {}
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true

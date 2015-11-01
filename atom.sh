@@ -2,7 +2,7 @@
 
 # force the creation to disable warnings in atom
 mkdir -p /work/vendor/src
-
+mkdir -p /work/src
 export GOPATH=/devhome/go:/work/vendor:/work 
 export GO15VENDOREXPERIMENT=1 
 
