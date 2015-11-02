@@ -20,4 +20,4 @@
     invisibles: {}
   "tree-view":
     hideIgnoredNames: true
-    hideVcsIgnoredFiles: true
+    hideVcsIgnoredFiles: false
