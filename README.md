@@ -1,5 +1,5 @@
 # atocker
-Atom Editor in Docker. 
+Atom 1.2 Editor in Docker. 
 
 ![Screenshot](screenshot.png)
 
