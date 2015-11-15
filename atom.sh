@@ -1,8 +1,16 @@
-#!/bin/sh
+#!/bin/bash
 
-# force the creation to disable warnings in atom
-mkdir -p /work/vendor/src
-mkdir -p /work/src
+if [ "$1" == "plain" ]; then
+# plain mode: don't create any directories
+  echo "plain mode ..."
+else
+  # default mode: gb based filelayout, we need src and vendor/src
+  # force the creation to disable warnings in atom
+  echo "gb/go mode ..."
+  mkdir -p /work/vendor/src
+  mkdir -p /work/src
+fi
+
 export GOPATH=/devhome/go:/work/vendor:/work 
 export GO15VENDOREXPERIMENT=1 
 

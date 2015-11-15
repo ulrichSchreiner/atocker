@@ -54,4 +54,4 @@ ADD config.cson /devhome/config.cson
 
 VOLUME /work
 
-CMD /devhome/startup.sh
+ENTRYPOINT ["/devhome/startup.sh"]

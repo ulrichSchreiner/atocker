@@ -23,7 +23,10 @@ fi
 if [ ! -d "/devhome/.atom/packages/symbols-tree-view" ]; then
 su - $HOSTUSER -c "apm install symbols-tree-view"
 fi
+if [ ! -d "/devhome/.atom/packages/git-plus" ]; then
+su - $HOSTUSER -c "apm install git-plus"
+fi
 
 mkdir -p /devhome/go && cd /devhome/go && mkdir src pkg bin
 
-su - $HOSTUSER -c /devhome/atom.sh
+su - $HOSTUSER -c "/devhome/atom.sh '$@'"
