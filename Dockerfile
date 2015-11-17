@@ -1,6 +1,6 @@
 FROM debian:jessie
 MAINTAINER Ulrich Schreiner <ulrich.schreiner@gmail.com>
-# base copied from Jessica Frazell 
+# base copied from Jessica Frazell
 
 RUN apt-get update && apt-get install -y \
     ca-certificates \
@@ -46,7 +46,7 @@ RUN /usr/local/go/bin/go get \
     github.com/constabulary/gb/...
 
 RUN echo "PATH=/usr/local/go/bin:/go/bin:$PATH" > /etc/profile.d/go.sh
-    
+
 RUN mkdir /devhome
 ADD startup.sh /devhome/startup.sh
 ADD atom.sh /devhome/atom.sh

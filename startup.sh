@@ -1,31 +1,31 @@
-#!/bin/sh
+#!/bin/bash
 
 groupadd $HOSTGROUP
 useradd $HOSTUSER -u $HOSTUSERID -g $HOSTGROUP -M -d /devhome
 chown -R $HOSTUSER:$HOSTGROUP /devhome
 chmod 777 /tmp
-   
-if [ ! -d "/devhome/.atom/packages/go-plus" ]; then
-su - $HOSTUSER -c "apm install go-plus"
-fi
-if [ ! -d "/devhome/.atom/packages/language-docker" ]; then
-su - $HOSTUSER -c "apm install language-docker"
-fi
-if [ ! -d "/devhome/.atom/packages/language-protobuf" ]; then
-su - $HOSTUSER -c "apm install language-protobuf"
-fi
-if [ ! -d "/devhome/.atom/packages/go-rename" ]; then
-su - $HOSTUSER -c "apm install go-rename"
-fi
-if [ ! -d "/devhome/.atom/packages/file-icons" ]; then
-su - $HOSTUSER -c "apm install file-icons"
-fi
-if [ ! -d "/devhome/.atom/packages/symbols-tree-view" ]; then
-su - $HOSTUSER -c "apm install symbols-tree-view"
-fi
-if [ ! -d "/devhome/.atom/packages/git-plus" ]; then
-su - $HOSTUSER -c "apm install git-plus"
-fi
+
+# do not use apm's package-file because we want atocker to install
+# new packages only if they are not already installed
+PACKAGES=( "go-plus" \
+  "language-docker" \
+  "language-protobuf" \
+  "go-rename" \
+  "file-icons" \
+  "symbols-tree-view" \
+  "git-plus" \
+  "minimap" \
+  "merge-conflicts" \
+)
+
+for p in "${PACKAGES[@]}"
+do
+  if [ ! -d "/devhome/.atom/packages/$p" ]; then
+    su - $HOSTUSER -c "apm install $p"
+  else
+    echo "$p already installed."
+  fi
+done
 
 mkdir -p /devhome/go && cd /devhome/go && mkdir src pkg bin
 
