@@ -18,6 +18,9 @@ PACKAGES=( "go-plus" \
   "merge-conflicts" \
 )
 
+# go-find-references uses git:// scheme, this can block in some environments
+# TODO: fix this
+
 for p in "${PACKAGES[@]}"
 do
   if [ ! -d "/devhome/.atom/packages/$p" ]; then

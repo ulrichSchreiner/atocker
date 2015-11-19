@@ -43,6 +43,7 @@ RUN /usr/local/go/bin/go get \
     golang.org/x/tools/cmd/stringer \
     github.com/josharian/impl \
     golang.org/x/tools/cmd/gorename \
+    github.com/redefiance/go-find-references \
     github.com/constabulary/gb/...
 
 RUN echo "PATH=/usr/local/go/bin:/go/bin:$PATH" > /etc/profile.d/go.sh
