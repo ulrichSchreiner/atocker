@@ -47,5 +47,6 @@ Now you can use `gbatom` to start an atom editor where the needed filesystem lay
 - [git-plus](https://atom.io/packages/git-plus)
 - [minimap](https://atom.io/packages/minimap)
 - [merge-conflicts](https://atom.io/packages/merge-conflicts)
+- [go-find-references](https://atom.io/packages/go-find-references)
 
 Please note: For `git-plus` you need your correct git configuration. In my example i mount my `$HOME/.gitconfig` into the container.

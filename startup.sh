@@ -30,6 +30,15 @@ do
   fi
 done
 
+if [ ! -d "/devhome/.atom/atom-go-find-references" ]; then
+  cd /devhome/.atom
+  git clone https://github.com/redefiance/atom-go-find-references.git
+  chown -R $HOSTUSER:$HOSTGROUP atom-go-find-references
+  cd /devhome/.atom/atom-go-find-references
+  sed -i 's/git\:\/\//git\+https\:\/\//g' package.json
+  su $HOSTUSER -c "apm install && apm link"
+fi
+
 mkdir -p /devhome/go && cd /devhome/go && mkdir src pkg bin
 
 su - $HOSTUSER -c "/devhome/atom.sh '$@'"
