@@ -8,8 +8,8 @@ This docker image contains [atom](http://atom.io), [go-plus](https://github.com/
 
 You can start the editor in the project directory with `atocker`.
 
-Please note: When using the given start script (or alias) the settings of the editor will be stored in the `.atocker` directory. You should put this directory in the
-`.gitignore` file.
+Please note: When using the given start script (or alias) the settings and plugins of the editor will be stored in your
+`$HOME/.config/.atocker/<workspacepath>` directory.
 
 [![Docker Repository on Quay.io](https://quay.io/repository/ulrichschreiner/atocker/status "Docker Repository on Quay.io")](https://quay.io/repository/ulrichschreiner/atocker)
 
@@ -22,12 +22,13 @@ _atocker() {
     -v /etc/localtime:/etc/localtime:ro \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v `pwd`:/work \
-    -v `pwd`/.atocker:/devhome/.atom \
+    -v $HOME/.config:/config \
     -v $HOME/.gitconfig:/devhome/.gitconfig \
     -e DISPLAY=$DISPLAY \
     -e HOSTUSER=`id -un` \
     -e HOSTGROUP=`id -gn` \
     -e HOSTUSERID=`id -u` \
+    -e WORKSPACE=`pwd` \
     quay.io/ulrichschreiner/atocker "$1"
 }
 alias gbatom=_atocker

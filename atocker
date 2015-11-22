@@ -4,12 +4,12 @@ docker run  \
     -d \
     -v /etc/localtime:/etc/localtime:ro \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -v $HOME/.config:/config \
     -v `pwd`:/work \
-    -v `pwd`/.atocker:/devhome/.atom \
     -v $HOME/.gitconfig:/devhome/.gitconfig \
     -e DISPLAY=$DISPLAY \
     -e HOSTUSER=`id -un` \
     -e HOSTGROUP=`id -gn` \
     -e HOSTUSERID=`id -u` \
+    -e WORKSPACE=`pwd` \
     ulrichschreiner/atocker "$@"
-

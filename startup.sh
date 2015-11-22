@@ -5,6 +5,11 @@ useradd $HOSTUSER -u $HOSTUSERID -g $HOSTGROUP -M -d /devhome
 chown -R $HOSTUSER:$HOSTGROUP /devhome
 chmod 777 /tmp
 
+if [ ! -d "/config/atocker$WORKSPACE" ]; then
+su $HOSTUSER -c "mkdir -p /config/atocker$WORKSPACE"
+fi
+ln -s /config/atocker$WORKSPACE /devhome/.atom
+
 # do not use apm's package-file because we want atocker to install
 # new packages only if they are not already installed
 PACKAGES=( "go-plus" \
