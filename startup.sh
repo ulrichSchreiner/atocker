@@ -46,4 +46,4 @@ fi
 
 mkdir -p /devhome/go && cd /devhome/go && mkdir src pkg bin
 
-su - $HOSTUSER -c "/devhome/atom.sh '$@'"
+exec su - $HOSTUSER -c "/devhome/atom.sh '$@'"

@@ -21,7 +21,7 @@ if [ ! -f "/devhome/.atom/config.cson" ]; then
 fi
 
 if [ ! -d "/devhome/.atom/storage" ]; then
-cd /work && atom --foreground .
+cd /work && exec atom --foreground .
 else
-cd /work && atom --foreground
+cd /work && exec atom --foreground
 fi
