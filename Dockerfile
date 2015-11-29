@@ -4,6 +4,7 @@ MAINTAINER Ulrich Schreiner <ulrich.schreiner@gmail.com>
 
 RUN apt-get update && apt-get install -y \
     ca-certificates \
+    chromium chromium-l10n \
     curl \
     gconf2 \
     gconf-service \
@@ -12,11 +13,17 @@ RUN apt-get update && apt-get install -y \
     bzr \
     gvfs-bin \
     libasound2 \
+    libcanberra-gtk-module \
+    libexif-dev \
+    libgl1-mesa-dri \
+    libgl1-mesa-glx \
     libgconf-2-4 \
     libgnome-keyring-dev \
     libgtk2.0-0 \
     libnotify4 \
     libnss3 \
+    libpango-1.0-0 \
+    libv4l-0 \
     libxtst6 \
     xdg-utils \
     --no-install-recommends \
