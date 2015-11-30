@@ -4,7 +4,6 @@ MAINTAINER Ulrich Schreiner <ulrich.schreiner@gmail.com>
 
 RUN apt-get update && apt-get install -y \
     ca-certificates \
-    chromium chromium-l10n \
     curl \
     gconf2 \
     gconf-service \
