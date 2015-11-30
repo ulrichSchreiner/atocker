@@ -24,6 +24,7 @@ _atocker() {
     -v `pwd`:/work \
     -v $HOME/.config:/config \
     -v $HOME/.gitconfig:/devhome/.gitconfig \
+    --device /dev/dri \
     -e DISPLAY=$DISPLAY \
     -e HOSTUSER=`id -un` \
     -e HOSTGROUP=`id -gn` \
