@@ -21,6 +21,8 @@ PACKAGES=( "go-plus" \
   "git-plus" \
   "minimap" \
   "merge-conflicts" \
+  "atom-material-ui" \
+  "atom-material-syntax" \
 )
 
 # go-find-references uses git:// scheme, this can block in some environments

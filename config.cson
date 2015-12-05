@@ -3,8 +3,8 @@
     showOnStartup: false
   core:
     themes: [
-      "atom-light-ui"
-      "atom-light-syntax"
+      "atom-material-ui"
+      "atom-material-syntax"
     ]
     ignoredNames: [
       ".atocker"
