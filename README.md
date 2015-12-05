@@ -24,6 +24,7 @@ _atocker() {
     -v `pwd`:/work \
     -v $HOME/.config:/config \
     -v $HOME/.gitconfig:/devhome/.gitconfig \
+    -v $SSH_AUTH_SOCK:/ssh-agent --env SSH_AUTH_SOCK=/ssh-agent \
     --device /dev/dri \
     -e DISPLAY=$DISPLAY \
     -e HOSTUSER=`id -un` \
@@ -35,6 +36,7 @@ _atocker() {
 alias gbatom=_atocker
 alias atm="_atocker plain"
 ```
+Note: If you have private repositories where you need your SSH keys, start an agent before starting `atocker` and add your keys with `ssh-add`. The agent will be forwarded to the container so the tools to pull inside of atom will work.
 
 Now you can use `gbatom` to start an atom editor where the needed filesystem layout will be created if it does not exist. You can also use `atm` to start a Atom editor in the current working directory without creating `src` and `vendor/src` directories.
 
