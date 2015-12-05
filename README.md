@@ -52,3 +52,6 @@ Now you can use `gbatom` to start an atom editor where the needed filesystem lay
 - [go-find-references](https://atom.io/packages/go-find-references)
 
 Please note: For `git-plus` you need your correct git configuration. In my example i mount my `$HOME/.gitconfig` into the container.
+
+## See also
+If you don't like atom, you should give  [Visual Studio Code](https://github.com/ulrichSchreiner/vsc) a try.
