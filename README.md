@@ -4,7 +4,9 @@ Atom 1.3 Editor with go-tools bundled in Docker.
 ![Screenshot](screenshot.png)
 
 This docker image contains [atom](http://atom.io), [go-plus](https://github.com/joefitzgerald/go-plus)  and many go tools. The configuration conforms to
-[gb](http://getgb.io/), so your project directory should conform to [this](http://getgb.io/docs/project/) layout. If there is no `vendor` directory one will be created!
+[gb](http://getgb.io/), so your project directory should conform to [this](http://getgb.io/docs/project/) layout. You can start the editor in an empty 
+directory and the needed directories will be created to develop with `gb` (a `src` and a `vendor` directory). You should have `gb` installed on your 
+system to build your software: simply open a second shell and type `gb build`. Make sure to create the correct [directory layout](http://getgb.io/docs/project/)!
 
 You can start the editor in the project directory with `atocker`.
 
