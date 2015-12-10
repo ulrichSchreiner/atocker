@@ -26,6 +26,7 @@ PACKAGES=( "go-plus" \
   "merge-conflicts" \
   "atom-material-ui" \
   "atom-material-syntax" \
+  "react" \
 )
 
 # go-find-references uses git:// scheme, this can block in some environments
