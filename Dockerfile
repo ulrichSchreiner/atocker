@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -y \
     libpango-1.0-0 \
     libv4l-0 \
     libxtst6 \
+    openssh-client \
     wget \
     xdg-utils \
     --no-install-recommends \
