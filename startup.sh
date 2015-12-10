@@ -1,7 +1,10 @@
 #!/bin/bash
 
+locale-gen $LANG
+
 groupadd $HOSTGROUP
 useradd $HOSTUSER -u $HOSTUSERID -g $HOSTGROUP -G video -M -d /devhome
+mkdir -p /devhome/.local/share
 chown -R $HOSTUSER:$HOSTGROUP /devhome
 chmod 777 /tmp
 
@@ -48,4 +51,4 @@ fi
 
 mkdir -p /devhome/go && cd /devhome/go && mkdir src pkg bin
 
-exec su - $HOSTUSER -c "/devhome/atom.sh '$@'"
+exec su - $HOSTUSER -c "export LANG=$LANG && /devhome/atom.sh '$@'"

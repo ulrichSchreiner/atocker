@@ -27,6 +27,7 @@ _atocker() {
     -v $SSH_AUTH_SOCK:/ssh-agent --env SSH_AUTH_SOCK=/ssh-agent \
     --device /dev/dri \
     -e DISPLAY=$DISPLAY \
+    -e LANG=$LANG \
     -e HOSTUSER=`id -un` \
     -e HOSTGROUP=`id -gn` \
     -e HOSTUSERID=`id -u` \

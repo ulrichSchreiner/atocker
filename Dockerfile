@@ -1,6 +1,5 @@
-FROM debian:jessie
+FROM ubuntu:15.10
 MAINTAINER Ulrich Schreiner <ulrich.schreiner@gmail.com>
-# base copied from Jessica Frazell
 
 RUN apt-get update && apt-get install -y \
     ca-certificates \
@@ -29,7 +28,7 @@ RUN apt-get update && apt-get install -y \
     --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
-ENV ATOM_VERSION 1.2.4
+ENV ATOM_VERSION 1.3.0
 
 RUN curl -sSL https://github.com/atom/atom/releases/download/v${ATOM_VERSION}/atom-amd64.deb -o /tmp/atom-amd64.deb \
 	&& dpkg -i /tmp/atom-amd64.deb \
