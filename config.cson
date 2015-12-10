@@ -21,3 +21,9 @@
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: false
+  minimap:
+    absoluteMode: true
+  "symbols-tree-view":
+    autoToggle: true
+  "go-plus": {}
+
