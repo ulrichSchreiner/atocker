@@ -54,11 +54,13 @@ RUN /usr/local/go/bin/go get \
     github.com/constabulary/gb/...
 
 RUN echo "PATH=/usr/local/go/bin:/go/bin:$PATH" > /etc/profile.d/go.sh
+RUN ln -sf /go/bin/* /usr/bin/
 
 RUN mkdir /devhome
 ADD startup.sh /devhome/startup.sh
 ADD atom.sh /devhome/atom.sh
 ADD config.cson /devhome/config.cson
+RUN echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config
 
 VOLUME /work
 

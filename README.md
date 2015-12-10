@@ -21,6 +21,7 @@ Use the given `atocker` script to start an instance or create an alias:
 _atocker() {
   docker run  \
     --rm \
+    -it \
     -v /etc/localtime:/etc/localtime:ro \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v `pwd`:/work \

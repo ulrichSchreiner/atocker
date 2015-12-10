@@ -52,4 +52,4 @@ fi
 
 mkdir -p /devhome/go && cd /devhome/go && mkdir src pkg bin
 
-exec su - $HOSTUSER -c "export LANG=$LANG && /devhome/atom.sh '$@'"
+su $HOSTUSER -c "export LANG=$LANG && /devhome/atom.sh '$@'"
