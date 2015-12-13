@@ -8,10 +8,17 @@ mkdir -p /devhome/.local/share
 chown -R $HOSTUSER:$HOSTGROUP /devhome
 chmod 777 /tmp
 
-if [ ! -d "/config/atocker$WORKSPACE" ]; then
-su $HOSTUSER -c "mkdir -p /config/atocker$WORKSPACE"
+if [ ! -d "/config/atocker$WORKSPACE/.atom" ]; then
+su $HOSTUSER -c "mkdir -p /config/atocker$WORKSPACE/.atom"
 fi
-ln -s /config/atocker$WORKSPACE /devhome/.atom
+if [ ! -d "/config/atocker$WORKSPACE/Atom" ]; then
+su $HOSTUSER -c "mkdir -p /config/atocker$WORKSPACE/Atom"
+fi
+
+su $HOSTUSER -c "mkdir -p /devhome/.config"
+
+ln -s /config/atocker$WORKSPACE/.atom /devhome/.atom
+ln -s /config/atocker$WORKSPACE/Atom /devhome/.config/Atom
 
 # do not use apm's package-file because we want atocker to install
 # new packages only if they are not already installed
