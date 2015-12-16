@@ -56,6 +56,7 @@ Now you can use `gbatom` to start an atom editor where the needed filesystem lay
 - [git-control](https://atom.io/packages/git-control)
 - [git-history](https://atom.io/packages/git-history)
 - [git-log](https://atom.io/packages/git-log)
+- [git-plus](https://atom.io/packages/git-plus)
 - [go-find-references](https://atom.io/packages/go-find-references)
 - [go-plus](https://atom.io/packages/go-plus)
 - [go-rename](https://atom.io/packages/go-rename)

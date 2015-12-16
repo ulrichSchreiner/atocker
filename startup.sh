@@ -39,6 +39,7 @@ PACKAGES=(
   "git-control" \
   "git-history" \
   "git-log" \
+  "git-plus" \
   "go-plus" \
   "go-rename" \
   "language-docker" \
