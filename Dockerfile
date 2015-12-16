@@ -2,6 +2,7 @@ FROM ubuntu:15.10
 MAINTAINER Ulrich Schreiner <ulrich.schreiner@gmail.com>
 
 RUN apt-get update && apt-get install -y \
+    build-essential \
     ca-certificates \
     curl \
     gconf2 \
@@ -26,10 +27,11 @@ RUN apt-get update && apt-get install -y \
     openssh-client \
     wget \
     xdg-utils \
+    xterm \
     --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
-ENV ATOM_VERSION 1.3.1
+ENV ATOM_VERSION 1.4.0-beta1
 
 RUN curl -sSL https://github.com/atom/atom/releases/download/v${ATOM_VERSION}/atom-amd64.deb -o /tmp/atom-amd64.deb \
 	&& dpkg -i /tmp/atom-amd64.deb \

@@ -1,11 +1,13 @@
 # atocker
-Atom 1.3 Editor with go-tools bundled in Docker.
+Atom 1.4 (beta) Editor with go-tools bundled in Docker.
+
+*Note: The beta is installed because of an instability of version 1.3*
 
 ![Screenshot](screenshot.png)
 
 This docker image contains [atom](http://atom.io), [go-plus](https://github.com/joefitzgerald/go-plus)  and many go tools. The configuration conforms to
-[gb](http://getgb.io/), so your project directory should conform to [this](http://getgb.io/docs/project/) layout. You can start the editor in an empty 
-directory and the needed directories will be created to develop with `gb` (a `src` and a `vendor` directory). You should have `gb` installed on your 
+[gb](http://getgb.io/), so your project directory should conform to [this](http://getgb.io/docs/project/) layout. You can start the editor in an empty
+directory and the needed directories will be created to develop with `gb` (a `src` and a `vendor` directory). You should have `gb` installed on your
 system to build your software: simply open a second shell and type `gb build`. Make sure to create the correct [directory layout](http://getgb.io/docs/project/)!
 
 You can start the editor in the project directory with `atocker`.
@@ -46,18 +48,29 @@ Now you can use `gbatom` to start an atom editor where the needed filesystem lay
 
 ## Included Plugins
 
+- [atom-material-syntax](https://atom.io/packages/atom-material-syntax)
+- [atom-material-ui](https://atom.io/packages/atom-material-ui)
+- [atom-terminal](https://atom.io/packages/atom-terminal)
+- [blame](https://atom.io/packages/blame)
+- [file-icons](https://atom.io/packages/file-icons)
+- [git-control](https://atom.io/packages/git-control)
+- [git-history](https://atom.io/packages/git-history)
+- [git-log](https://atom.io/packages/git-log)
+- [go-find-references](https://atom.io/packages/go-find-references)
 - [go-plus](https://atom.io/packages/go-plus)
+- [go-rename](https://atom.io/packages/go-rename)
 - [language-docker](https://atom.io/packages/language-docker)
 - [language-protobuf](https://atom.io/packages/language-protobuf)
-- [go-rename](https://atom.io/packages/go-rename)
-- [file-icons](https://atom.io/packages/file-icons)
-- [symbols-tree-view](https://atom.io/packages/symbols-tree-view)
-- [git-plus](https://atom.io/packages/git-plus)
-- [minimap](https://atom.io/packages/minimap)
 - [merge-conflicts](https://atom.io/packages/merge-conflicts)
-- [go-find-references](https://atom.io/packages/go-find-references)
+- [minimap](https://atom.io/packages/minimap)
+- [minimap-bookmarks](https://atom.io/packages/minimap-bookmarks)
+- [minimap-find-and-replace](https://atom.io/packages/minimap-find-and-replace)
+- [react](https://atom.io/packages/react)
+- [symbols-tree-view](https://atom.io/packages/symbols-tree-view)
+- [tool-bar](https://atom.io/packages/tool-bar)
+- [tool-bar-almighty](https://atom.io/packages/too-bar-almighty)
 
-Please note: For `git-plus` you need your correct git configuration. In my example i mount my `$HOME/.gitconfig` into the container.
+Please note: For `git` you need your correct git configuration. In my example i mount my `$HOME/.gitconfig` into the container.
 
 ## See also
 If you don't like atom, you should give  [Visual Studio Code](https://github.com/ulrichSchreiner/vsc) a try.

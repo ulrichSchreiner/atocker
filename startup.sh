@@ -1,5 +1,13 @@
 #!/bin/bash
 
+APM=/usr/bin/apm
+ATOM=/usr/bin/atom
+
+if [ -f "/usr/bin/apm-beta" ]; then
+  APM=/usr/bin/apm-beta
+  ATOM=/usr/bin/atom-beta
+fi
+
 locale-gen $LANG
 
 groupadd $HOSTGROUP
@@ -22,18 +30,27 @@ ln -s /config/atocker$WORKSPACE/Atom /devhome/.config/Atom
 
 # do not use apm's package-file because we want atocker to install
 # new packages only if they are not already installed
-PACKAGES=( "go-plus" \
+PACKAGES=( 
+  "atom-material-syntax" \
+  "atom-material-ui" \
+  "atom-terminal" \
+  "blame" \
+  "file-icons" \
+  "git-control" \
+  "git-history" \
+  "git-log" \
+  "go-plus" \
+  "go-rename" \
   "language-docker" \
   "language-protobuf" \
-  "go-rename" \
-  "file-icons" \
-  "symbols-tree-view" \
-  "git-plus" \
-  "minimap" \
   "merge-conflicts" \
-  "atom-material-ui" \
-  "atom-material-syntax" \
+  "minimap" \
+  "minimap-bookmarks" \
+  "minimap-find-and-replace" \
   "react" \
+  "symbols-tree-view" \
+  "tool-bar" \
+  "tool-bar-almighty" \
 )
 
 # go-find-references uses git:// scheme, this can block in some environments
@@ -42,7 +59,7 @@ PACKAGES=( "go-plus" \
 for p in "${PACKAGES[@]}"
 do
   if [ ! -d "/devhome/.atom/packages/$p" ]; then
-    su - $HOSTUSER -c "apm install $p"
+    su - $HOSTUSER -c "$APM install $p"
   else
     echo "$p already installed."
   fi
@@ -54,9 +71,9 @@ if [ ! -d "/devhome/.atom/atom-go-find-references" ]; then
   chown -R $HOSTUSER:$HOSTGROUP atom-go-find-references
   cd /devhome/.atom/atom-go-find-references
   sed -i 's/git\:\/\//git\+https\:\/\//g' package.json
-  su $HOSTUSER -c "apm install && apm link"
+  su $HOSTUSER -c "$APM install && $APM link"
 fi
 
 mkdir -p /devhome/go && cd /devhome/go && mkdir src pkg bin
 
-su $HOSTUSER -c "export LANG=$LANG && /devhome/atom.sh '$@'"
+su $HOSTUSER -c "export ATOM=$ATOM export LANG=$LANG && /devhome/atom.sh '$@'"
