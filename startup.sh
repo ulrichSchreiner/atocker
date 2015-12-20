@@ -30,7 +30,7 @@ ln -s /config/atocker$WORKSPACE/Atom /devhome/.config/Atom
 
 # do not use apm's package-file because we want atocker to install
 # new packages only if they are not already installed
-PACKAGES=( 
+PACKAGES=(
   "atom-material-syntax" \
   "atom-material-ui" \
   "atom-terminal" \
@@ -60,7 +60,7 @@ PACKAGES=(
 for p in "${PACKAGES[@]}"
 do
   if [ ! -d "/devhome/.atom/packages/$p" ]; then
-    su - $HOSTUSER -c "$APM install $p"
+    gosu $HOSTUSER $APM install $p
   else
     echo "$p already installed."
   fi
@@ -72,9 +72,9 @@ if [ ! -d "/devhome/.atom/atom-go-find-references" ]; then
   chown -R $HOSTUSER:$HOSTGROUP atom-go-find-references
   cd /devhome/.atom/atom-go-find-references
   sed -i 's/git\:\/\//git\+https\:\/\//g' package.json
-  su $HOSTUSER -c "$APM install && $APM link"
+  gosu $HOSTUSER $APM install && $APM link
 fi
 
 mkdir -p /devhome/go && cd /devhome/go && mkdir src pkg bin
 
-su $HOSTUSER -c "export ATOM=$ATOM export LANG=$LANG && /devhome/atom.sh '$@'"
+gosu $HOSTUSER bash -c "export ATOM=$ATOM export LANG=$LANG && /devhome/atom.sh '$@'"

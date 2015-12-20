@@ -31,7 +31,7 @@ RUN apt-get update && apt-get install -y \
     --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
-ENV ATOM_VERSION 1.4.0-beta2
+ENV ATOM_VERSION 1.4.0-beta3
 
 RUN curl -sSL https://github.com/atom/atom/releases/download/v${ATOM_VERSION}/atom-amd64.deb -o /tmp/atom-amd64.deb \
 	&& dpkg -i /tmp/atom-amd64.deb \
@@ -58,10 +58,12 @@ RUN /usr/local/go/bin/go get \
 RUN echo "PATH=/usr/local/go/bin:/go/bin:$PATH" > /etc/profile.d/go.sh
 RUN ln -sf /go/bin/* /usr/bin/
 
+RUN curl -o /usr/bin/gosu -sSL "https://github.com/tianon/gosu/releases/download/1.7/gosu-$(dpkg --print-architecture)" && chmod +x /usr/bin/gosu
+
 RUN mkdir /devhome
-ADD startup.sh /devhome/startup.sh
-ADD atom.sh /devhome/atom.sh
-ADD config.cson /devhome/config.cson
+COPY startup.sh /devhome/startup.sh
+COPY atom.sh /devhome/atom.sh
+COPY config.cson /devhome/config.cson
 RUN echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config
 
 VOLUME /work
