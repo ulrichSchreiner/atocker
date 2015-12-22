@@ -77,4 +77,4 @@ fi
 
 mkdir -p /devhome/go && cd /devhome/go && mkdir src pkg bin
 
-gosu $HOSTUSER bash -c "export ATOM=$ATOM export LANG=$LANG && /devhome/atom.sh '$@'"
+exec gosu $HOSTUSER bash -c "export ATOM=$ATOM export LANG=$LANG && dbus-launch /devhome/atom.sh '$@'"
