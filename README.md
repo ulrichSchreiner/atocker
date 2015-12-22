@@ -36,6 +36,7 @@ _atocker() {
     -e HOSTUSER=`id -un` \
     -e HOSTGROUP=`id -gn` \
     -e HOSTUSERID=`id -u` \
+    -e HOSTGROUPID=`id -g` \
     -e WORKSPACE=`pwd` \
     quay.io/ulrichschreiner/atocker "$1"
 }

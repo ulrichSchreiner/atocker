@@ -14,5 +14,6 @@ docker run  \
     -e HOSTUSER=`id -un` \
     -e HOSTGROUP=`id -gn` \
     -e HOSTUSERID=`id -u` \
+    -e HOSTGROUPID=`id -g` \
     -e WORKSPACE=`pwd` \
     ulrichschreiner/atocker "$@"

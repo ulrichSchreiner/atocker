@@ -10,7 +10,7 @@ fi
 
 locale-gen $LANG
 
-groupadd $HOSTGROUP
+groupadd $HOSTGROUP -g $HOSTGROUPID
 useradd $HOSTUSER -u $HOSTUSERID -g $HOSTGROUP -G video -M -d /devhome
 mkdir -p /devhome/.local/share
 chown -R $HOSTUSER:$HOSTGROUP /devhome
