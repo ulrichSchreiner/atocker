@@ -3,14 +3,14 @@ MAINTAINER Ulrich Schreiner <ulrich.schreiner@gmail.com>
 
 RUN apt-get update && apt-get install -y \
     build-essential \
+    bzr \
     ca-certificates \
     curl \
     gconf2 \
     gconf-service \
     git \
-    mercurial \
-    bzr \
     gvfs-bin \
+    mercurial \
     libasound2 \
     libcanberra-gtk-module \
     libexif-dev \
