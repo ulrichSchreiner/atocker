@@ -31,13 +31,13 @@ RUN apt-get update && apt-get install -y \
     --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
-ENV ATOM_VERSION 1.4.0-beta3
+ENV ATOM_VERSION 1.4.0
 
 RUN curl -sSL https://github.com/atom/atom/releases/download/v${ATOM_VERSION}/atom-amd64.deb -o /tmp/atom-amd64.deb \
 	&& dpkg -i /tmp/atom-amd64.deb \
 	&& rm -rf /tmp/atom-amd64.deb
 
-ENV GO_VERSION 1.5.2
+ENV GO_VERSION 1.5.3
 RUN curl https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz |tar -C /usr/local -xz
 
 RUN mkdir /go && cd /go && mkdir src pkg bin

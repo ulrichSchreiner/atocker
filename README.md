@@ -1,7 +1,5 @@
 # atocker
-Atom 1.4 (beta) Editor with go-tools bundled in Docker.
-
-*Note: The beta is installed because of an instability of version 1.3*
+Atom 1.4 Editor with go-tools bundled in Docker.
 
 ![Screenshot](screenshot.png)
 
