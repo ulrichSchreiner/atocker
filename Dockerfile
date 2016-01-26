@@ -31,7 +31,7 @@ RUN apt-get update && apt-get install -y \
     --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
-ENV ATOM_VERSION 1.4.0
+ENV ATOM_VERSION 1.4.1
 
 RUN curl -sSL https://github.com/atom/atom/releases/download/v${ATOM_VERSION}/atom-amd64.deb -o /tmp/atom-amd64.deb \
 	&& dpkg -i /tmp/atom-amd64.deb \
@@ -52,7 +52,7 @@ RUN /usr/local/go/bin/go get \
     golang.org/x/tools/cmd/stringer \
     github.com/josharian/impl \
     golang.org/x/tools/cmd/gorename \
-    github.com/redefiance/go-find-references \
+    github.com/lukehoban/go-find-references \
     github.com/constabulary/gb/...
 
 RUN echo "PATH=/usr/local/go/bin:/go/bin:$PATH" > /etc/profile.d/go.sh
