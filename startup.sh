@@ -32,6 +32,7 @@ ln -s /config/atocker$WORKSPACE/Atom /devhome/.config/Atom
 # new packages only if they are not already installed
 PACKAGES=(
   "atom-material-syntax" \
+  "atom-material-syntax-light" \
   "atom-material-ui" \
   "atom-terminal" \
   "blame" \

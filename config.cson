@@ -1,10 +1,21 @@
 "*":
   welcome:
     showOnStartup: false
+  "atom-material-ui":
+    fonts:
+      useRobotoInUI: true
+    panels:
+      depth: true
+      panelContrast: true
+    tabs:
+      rippleAccentColor: true
+    treeView:
+      compactTreeView: true
+    ui: {}
   core:
     themes: [
       "atom-material-ui"
-      "atom-material-syntax"
+      "atom-material-syntax-light"
     ]
     ignoredNames: [
       ".atocker"
@@ -23,6 +34,9 @@
     hideVcsIgnoredFiles: false
   minimap:
     absoluteMode: true
+    plugins:
+      bookmarks: true
+      "find-and-replace": true
   "symbols-tree-view":
     autoToggle: true
   "go-plus": {}
