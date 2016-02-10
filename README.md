@@ -1,5 +1,5 @@
 # atocker
-Atom 1.4 Editor with go-tools bundled in Docker.
+Atom 1.5 Editor with go-tools bundled in Docker.
 
 ![Screenshot](screenshot.png)
 
