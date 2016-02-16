@@ -11,8 +11,8 @@ else
   mkdir -p /work/src
 fi
 
-export GOPATH=/devhome/go:/work/vendor:/work 
-export GO15VENDOREXPERIMENT=1 
+export GOPATH=/devhome/go:/work/vendor:/work
+export GO15VENDOREXPERIMENT=1
 
 /go/bin/gocode set package-lookup-mode gb
 

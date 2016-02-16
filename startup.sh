@@ -19,6 +19,9 @@ chmod 777 /tmp
 if [ ! -d "/config/atocker$WORKSPACE/.atom" ]; then
 su $HOSTUSER -c "mkdir -p /config/atocker$WORKSPACE/.atom"
 fi
+if [ ! -d "/config/atocker/.atom/packages" ]; then
+su $HOSTUSER -c "mkdir -p /config/atocker/.atom/packages"
+fi
 if [ ! -d "/config/atocker$WORKSPACE/Atom" ]; then
 su $HOSTUSER -c "mkdir -p /config/atocker$WORKSPACE/Atom"
 fi
@@ -26,6 +29,7 @@ fi
 su $HOSTUSER -c "mkdir -p /devhome/.config"
 
 ln -s /config/atocker$WORKSPACE/.atom /devhome/.atom
+ln -s /config/atocker/.atom/packages /devhome/.atom/packages
 ln -s /config/atocker$WORKSPACE/Atom /devhome/.config/Atom
 
 # do not use apm's package-file because we want atocker to install
@@ -67,11 +71,11 @@ do
   fi
 done
 
-if [ ! -d "/devhome/.atom/atom-go-find-references" ]; then
-  cd /devhome/.atom
+if [ ! -d "/config/atocker/.atom/atom-go-find-references" ]; then
+  cd /config/atocker/.atom
   git clone https://github.com/redefiance/atom-go-find-references.git
   chown -R $HOSTUSER:$HOSTGROUP atom-go-find-references
-  cd /devhome/.atom/atom-go-find-references
+  cd /config/atocker/.atom/atom-go-find-references
   sed -i 's/git\:\/\//git\+https\:\/\//g' package.json
   gosu $HOSTUSER $APM install && $APM link
 fi
