@@ -11,7 +11,7 @@ system to build your software: simply open a second shell and type `gb build`. M
 You can start the editor in the project directory with `atocker`.
 
 Please note: When using the given start script (or alias) the settings and plugins of the editor will be stored in your
-`$HOME/.config/.atocker/<workspacepath>` directory.
+`$HOME/.config/atocker/<workspacepath>` directory. All plugins will be in your `$HOME/.config/atocker/.atom/packages` folder. 
 
 [![Docker Repository on Quay.io](https://quay.io/repository/ulrichschreiner/atocker/status "Docker Repository on Quay.io")](https://quay.io/repository/ulrichschreiner/atocker)
 
