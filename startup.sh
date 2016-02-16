@@ -29,6 +29,8 @@ fi
 su $HOSTUSER -c "mkdir -p /devhome/.config"
 
 ln -s /config/atocker$WORKSPACE/.atom /devhome/.atom
+# remove old packages from previous version
+rm -rf /devhome/.atom/packages
 ln -s /config/atocker/.atom/packages /devhome/.atom/packages
 ln -s /config/atocker$WORKSPACE/Atom /devhome/.config/Atom
 

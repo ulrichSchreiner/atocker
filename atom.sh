@@ -16,9 +16,11 @@ export GO15VENDOREXPERIMENT=1
 
 /go/bin/gocode set package-lookup-mode gb
 
-if [ ! -f "/devhome/.atom/config.cson" ]; then
-  cp /devhome/config.cson /devhome/.atom/config.cson
+if [ -f "/devhome/.atom/config.cson" ]; then
+  # remove old config.cson from previous version
+  rm -rf /devhome/.atom/config.cson
 fi
+ln -s /devhome/config.cson /devhome/.atom/config.cson
 
 if [ ! -d "/devhome/.atom/storage" ]; then
 cd /work && $ATOM --foreground .
