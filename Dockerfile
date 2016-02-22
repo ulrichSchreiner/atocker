@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y \
     libv4l-0 \
     libxtst6 \
     openssh-client \
+    pandoc \
     wget \
     xdg-utils \
     xterm \

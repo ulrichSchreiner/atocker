@@ -51,11 +51,13 @@ PACKAGES=(
   "go-rename" \
   "language-docker" \
   "language-protobuf" \
+  "language-reStructuredText" \
   "merge-conflicts" \
   "minimap" \
   "minimap-bookmarks" \
   "minimap-find-and-replace" \
   "react" \
+  "rst-preview-pandoc" \
   "symbols-tree-view" \
   "tool-bar" \
   "tool-bar-almighty" \
