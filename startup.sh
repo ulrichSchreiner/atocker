@@ -51,7 +51,7 @@ PACKAGES=(
   "go-rename" \
   "language-docker" \
   "language-protobuf" \
-  "language-reStructuredText" \
+  "language-restructuredtext" \
   "merge-conflicts" \
   "minimap" \
   "minimap-bookmarks" \
