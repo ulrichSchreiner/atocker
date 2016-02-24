@@ -2,16 +2,11 @@
   welcome:
     showOnStartup: false
   "atom-material-ui":
-    fonts:
-      useRobotoInUI: true
-    panels:
-      depth: true
-      panelContrast: true
+    fonts: {}
     tabs:
-      rippleAccentColor: true
+      compactTabs: true
     treeView:
-      compactTreeView: true
-    ui: {}
+      compactList: true
   core:
     themes: [
       "atom-material-ui"
