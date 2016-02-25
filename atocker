@@ -16,4 +16,4 @@ docker run  \
     -e HOSTUSERID=`id -u` \
     -e HOSTGROUPID=`id -g` \
     -e WORKSPACE=`pwd` \
-    ulrichschreiner/atocker "$@"
+    quay.io/ulrichschreiner/atocker "$@"
