@@ -1,17 +1,7 @@
 "*":
   welcome:
     showOnStartup: false
-  "atom-material-ui":
-    fonts: {}
-    tabs:
-      compactTabs: true
-    treeView:
-      compactList: true
   core:
-    themes: [
-      "atom-material-ui"
-      "atom-material-syntax-light"
-    ]
     ignoredNames: [
       ".atocker"
       ".git"

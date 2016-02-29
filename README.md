@@ -47,9 +47,6 @@ Now you can use `gbatom` to start an atom editor where the needed filesystem lay
 
 ## Included Plugins
 
-- [atom-material-syntax](https://atom.io/packages/atom-material-syntax)
-- [atom-material-ui](https://atom.io/packages/atom-material-ui)
-- [atom-terminal](https://atom.io/packages/atom-terminal)
 - [blame](https://atom.io/packages/blame)
 - [file-icons](https://atom.io/packages/file-icons)
 - [git-control](https://atom.io/packages/git-control)
