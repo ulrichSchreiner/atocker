@@ -2,6 +2,7 @@
   welcome:
     showOnStartup: false
   core:
+    automaticallyUpdate: false
     ignoredNames: [
       ".atocker"
       ".git"
