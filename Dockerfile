@@ -32,7 +32,7 @@ RUN apt-get update && apt-get install -y \
     --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
-ENV ATOM_VERSION 1.5.3
+ENV ATOM_VERSION 1.6.0
 
 RUN curl -sSL https://github.com/atom/atom/releases/download/v${ATOM_VERSION}/atom-amd64.deb -o /tmp/atom-amd64.deb \
 	&& dpkg -i /tmp/atom-amd64.deb \
@@ -42,19 +42,18 @@ ENV GO_VERSION 1.6
 RUN curl https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz |tar -C /usr/local -xz
 
 RUN mkdir /go && cd /go && mkdir src pkg bin
-ENV GOPATH /go
 
-RUN /usr/local/go/bin/go get \
-    github.com/nsf/gocode \
-    github.com/golang/lint/golint \
-    golang.org/x/tools/cmd/goimports \
-    github.com/rogpeppe/godef \
-    golang.org/x/tools/cmd/oracle \
-    golang.org/x/tools/cmd/stringer \
+RUN GOPATH=/go PATH=/usr/local/go/bin:$PATH go get \
+    github.com/alecthomas/gometalinter \
     github.com/josharian/impl \
+    github.com/nsf/gocode \
+    github.com/rogpeppe/godef \
     golang.org/x/tools/cmd/gorename \
-    github.com/lukehoban/go-find-references \
-    github.com/constabulary/gb/...
+    golang.org/x/tools/cmd/gotype \
+    golang.org/x/tools/cmd/stringer && \
+    GOPATH=/go PATH=/usr/local/go/bin:$PATH /go/bin/gometalinter --install --update  && \
+    rm -rf /go/pkg/*
+    
 
 RUN echo "PATH=/usr/local/go/bin:/go/bin:$PATH" > /etc/profile.d/go.sh
 RUN ln -sf /go/bin/* /usr/bin/

@@ -5,14 +5,23 @@ if [ "$1" == "plain" ]; then
   echo "plain mode ..."
 else
   # default mode: gb based filelayout, we need src and vendor/src
-  # force the creation to disable warnings in atom
+  # force the creation to disable warnings in atom. gb and go use
+  # different layouts an directory names. and the go-tools need one
+  # gb needs the other .... :-(. so try to make both work.
+
+  GO_LIBDIR=`go env GOHOSTOS`_`go env GOARCH`
+  GB_LIBDIR=`go env GOHOSTOS`-`go env GOARCH`
   echo "gb/go mode ..."
   mkdir -p /work/vendor/src
+  mkdir -p /work/pkg/$GB_LIBDIR
+  mkdir -p /work/vendor/pkg/
+  cd /work/vendor/pkg && ln -s ../../pkg/$GB_LIBDIR $GO_LIBDIR && cd -
   mkdir -p /work/src
 fi
 
 export GOPATH=/devhome/go:/work/vendor:/work
-export GO15VENDOREXPERIMENT=1
+# next one for gometalinter
+export GO_VENDOR=1 
 
 /go/bin/gocode set package-lookup-mode gb
 

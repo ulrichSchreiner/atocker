@@ -38,30 +38,36 @@ ln -s /config/atocker$WORKSPACE/Atom /devhome/.config/Atom
 # new packages only if they are not already installed
 PACKAGES=(
   "atom-terminal" \
+  "autocomplete-go" \
   "blame" \
+  "environment" \
   "file-icons" \
   "git-control" \
   "git-history" \
   "git-log" \
   "git-plus" \
+  "go-config" \
+  "go-get" \
   "go-plus" \
-  "go-rename" \
+  "gofmt" \
+  "gorename" \
   "language-docker" \
   "language-protobuf" \
   "language-restructuredtext" \
+  "linter" "gometalinter-linter" \
   "merge-conflicts" \
   "minimap" \
   "minimap-bookmarks" \
   "minimap-find-and-replace" \
+  "navigator-godef" \
   "react" \
   "rst-preview-pandoc" \
   "symbols-tree-view" \
+  "tester-go" \
   "tool-bar" \
   "tool-bar-almighty" \
 )
 
-# go-find-references uses git:// scheme, this can block in some environments
-# TODO: fix this
 
 for p in "${PACKAGES[@]}"
 do
@@ -72,15 +78,6 @@ do
   fi
 done
 
-if [ ! -d "/config/atocker/.atom/atom-go-find-references" ]; then
-  cd /config/atocker/.atom
-  git clone https://github.com/redefiance/atom-go-find-references.git
-  chown -R $HOSTUSER:$HOSTGROUP atom-go-find-references
-  cd /config/atocker/.atom/atom-go-find-references
-  sed -i 's/git\:\/\//git\+https\:\/\//g' package.json
-  gosu $HOSTUSER $APM install && $APM link
-fi
-
 mkdir -p /devhome/go && cd /devhome/go && mkdir src pkg bin
 
-exec gosu $HOSTUSER bash -c "export ATOM=$ATOM export LANG=$LANG && dbus-launch /devhome/atom.sh '$@'"
+exec gosu $HOSTUSER bash -c "export PATH=/usr/local/go/bin:/go/bin:$PATH ATOM=$ATOM export LANG=$LANG && dbus-launch /devhome/atom.sh '$@'"

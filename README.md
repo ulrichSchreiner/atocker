@@ -1,5 +1,5 @@
 # atocker
-Atom 1.5 Editor with go-tools bundled in Docker.
+Atom 1.6 Editor with go-tools bundled in Docker.
 
 ![Screenshot](screenshot.png)
 
@@ -43,7 +43,7 @@ alias atm="_atocker plain"
 ```
 Note: If you have private repositories where you need your SSH keys, start an agent before starting `atocker` and add your keys with `ssh-add`. The agent will be forwarded to the container so the tools to pull inside of atom will work.
 
-Now you can use `gbatom` to start an atom editor where the needed filesystem layout will be created if it does not exist. You can also use `atm` to start a Atom editor in the current working directory without creating `src` and `vendor/src` directories.
+Now you can use `gbatom` to start an atom editor where the needed filesystem layout will be created if it does not exist. You can also use `atm` to start a Atom editor in the current working directory without creating `src` and `vendor/src` directories. When using in `go` mode, the startup script will also create a symlink in the vendor's package directory so the standard go tools will work. Please do not delete this link! 
 
 ## Included Plugins
 
@@ -53,7 +53,6 @@ Now you can use `gbatom` to start an atom editor where the needed filesystem lay
 - [git-history](https://atom.io/packages/git-history)
 - [git-log](https://atom.io/packages/git-log)
 - [git-plus](https://atom.io/packages/git-plus)
-- [go-find-references](https://atom.io/packages/go-find-references)
 - [go-plus](https://atom.io/packages/go-plus)
 - [go-rename](https://atom.io/packages/go-rename)
 - [language-docker](https://atom.io/packages/language-docker)
