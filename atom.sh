@@ -14,9 +14,10 @@ else
   echo "gb/go mode ..."
   mkdir -p /work/vendor/src
   mkdir -p /work/pkg/$GB_LIBDIR
-  mkdir -p /work/vendor/pkg/
-  cd /work/vendor/pkg && ln -s ../../pkg/$GB_LIBDIR $GO_LIBDIR && cd -
+  rm -rf /work/pkg/$GO_LIBDIR && cd /work/pkg && ln -s $GB_LIBDIR $GO_LIBDIR && cd -
+  cd /work/vendor && rm -rf pkg && ln -s ../pkg 
   mkdir -p /work/src
+  cd /work && /go/bin/gb build
 fi
 
 export GOPATH=/devhome/go:/work/vendor:/work
