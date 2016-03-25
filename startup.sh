@@ -39,6 +39,7 @@ ln -s /config/atocker$WORKSPACE/Atom /devhome/.config/Atom
 PACKAGES=(
   "atom-terminal" \
   "autocomplete-go" \
+  "builder-go" \
   "blame" \
   "environment" \
   "file-icons" \

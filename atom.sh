@@ -24,6 +24,7 @@ export GOPATH=/devhome/go:/work/vendor:/work
 export GO_VENDOR=1 
 
 /go/bin/gocode set package-lookup-mode gb
+/go/bin/gocode set autobuild true
 
 if [ -f "/devhome/.atom/config.cson" ]; then
   # remove old config.cson from previous version
