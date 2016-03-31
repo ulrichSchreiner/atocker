@@ -57,6 +57,7 @@ PACKAGES=(
   "language-protobuf" \
   "language-restructuredtext" \
   "linter" "gometalinter-linter" \
+  "linter-ansible-linting" \
   "merge-conflicts" \
   "minimap" \
   "minimap-bookmarks" \

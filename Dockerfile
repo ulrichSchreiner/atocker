@@ -26,10 +26,13 @@ RUN apt-get update && apt-get install -y \
     libxtst6 \
     openssh-client \
     pandoc \
+    python-dev \
+    python-pip \
     wget \
     xdg-utils \
     xterm \
     --no-install-recommends \
+    && pip install markupsafe Ansible-Lint \
     && rm -rf /var/lib/apt/lists/*
 
 ENV ATOM_VERSION 1.6.1
