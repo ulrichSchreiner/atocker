@@ -37,6 +37,7 @@ ln -s /config/atocker$WORKSPACE/Atom /devhome/.config/Atom
 # do not use apm's package-file because we want atocker to install
 # new packages only if they are not already installed
 PACKAGES=(
+  "atom-jinja2" \
   "atom-terminal" \
   "autocomplete-go" \
   "builder-go" \
@@ -56,6 +57,7 @@ PACKAGES=(
   "language-protobuf" \
   "language-restructuredtext" \
   "linter" "gometalinter-linter" \
+  "linter-ansible-linting" \
   "merge-conflicts" \
   "minimap" \
   "minimap-bookmarks" \
