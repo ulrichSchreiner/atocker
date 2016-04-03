@@ -35,7 +35,7 @@ RUN apt-get update && apt-get install -y \
     && pip install markupsafe Ansible-Lint \
     && rm -rf /var/lib/apt/lists/*
 
-ENV ATOM_VERSION 1.6.1
+ENV ATOM_VERSION 1.6.2
 
 RUN curl -sSL https://github.com/atom/atom/releases/download/v${ATOM_VERSION}/atom-amd64.deb -o /tmp/atom-amd64.deb \
 	&& dpkg -i /tmp/atom-amd64.deb \
