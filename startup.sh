@@ -48,16 +48,17 @@ PACKAGES=(
   "git-history" \
   "git-log" \
   "git-plus" \
+  "git-time-machine" \
   "go-config" \
   "go-get" \
   "go-plus" \
   "gofmt" \
   "gorename" \
+  "language-ansible" \
   "language-docker" \
   "language-protobuf" \
   "language-restructuredtext" \
   "linter" "gometalinter-linter" \
-  "linter-ansible-linting" \
   "merge-conflicts" \
   "minimap" \
   "minimap-bookmarks" \
