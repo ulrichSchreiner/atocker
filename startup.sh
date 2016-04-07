@@ -52,6 +52,7 @@ PACKAGES=(
   "go-config" \
   "go-get" \
   "go-plus" \
+  "go-signature-statusbar" \
   "gofmt" \
   "gorename" \
   "language-ansible" \
