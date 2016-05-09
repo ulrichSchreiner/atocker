@@ -45,7 +45,7 @@ RUN curl https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.g
 
 RUN mkdir /go && cd /go && mkdir src pkg bin
 
-ENV GB_VERSION 0.4.0
+ENV GB_VERSION 0.4.1
 RUN GOPATH=/go PATH=/usr/local/go/bin:$PATH go get \
     github.com/constabulary/gb/... \
     github.com/alecthomas/gometalinter \
