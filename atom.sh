@@ -1,26 +1,6 @@
 #!/bin/bash
 
-if [ "$1" == "plain" ]; then
-# plain mode: don't create any directories
-  echo "plain mode ..."
-else
-  # default mode: gb based filelayout, we need src and vendor/src
-  # force the creation to disable warnings in atom. gb and go use
-  # different layouts an directory names. and the go-tools need one
-  # gb needs the other .... :-(. so try to make both work.
-
-  GO_LIBDIR=`go env GOHOSTOS`_`go env GOARCH`
-  GB_LIBDIR=`go env GOHOSTOS`-`go env GOARCH`
-  echo "gb/go mode ..."
-  mkdir -p /work/vendor/src
-  mkdir -p /work/pkg/$GB_LIBDIR
-  rm -rf /work/pkg/$GO_LIBDIR && cd /work/pkg && ln -s $GB_LIBDIR $GO_LIBDIR && cd -
-  cd /work/vendor && rm -rf pkg && ln -s ../pkg 
-  mkdir -p /work/src
-  cd /work && /go/bin/gb build
-fi
-
-export GOPATH=/devhome/go:/work/vendor:/work
+export GOPATH=/work:/devhome/go
 # next one for gometalinter
 export GO_VENDOR=1 
 
