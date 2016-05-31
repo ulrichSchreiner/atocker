@@ -5,7 +5,7 @@ Atom 1.7 Editor with go-tools bundled in Docker.
 
 This docker image contains [atom](http://atom.io), [go-plus](https://github.com/joefitzgerald/go-plus)  and many go tools. The configuration conforms to a standard *GOPATH* filesystem layout. Earliear Versions of
 **atocker** used the directory layout of [gb](http://getgb.io/); with Go 1.6 vendoring is a part of
-Go itself, so imho it is not needed any more to use sepearate directories for specific projects.
+Go itself, so imho it is not needed any more to use sepearate directories for specific projects. If you want `gb` support, you should start `atocker` with `gb` as parametern. In this case, the script will put then `/work/vendor` directory in the `GOPATH` and most of the go-tools should work.
 
 You can start the editor in any empty directory and this will be used as the single *GOPATH*. So if you want to
 develop for [docker](https://github.com/docker/docker) it would be ok to have a directory tree like this:
@@ -68,8 +68,8 @@ _atocker() {
     -e WORKSPACE=`pwd` \
     quay.io/ulrichschreiner/atocker "$1"
 }
-alias gbatom=_atocker
-alias atm="_atocker plain"
+alias gbatom=_atocker gb
+alias atm="_atocker"
 ```
 Note: If you have private repositories where you need your SSH keys, start an agent before starting `atocker` and add your keys with `ssh-add`. The agent will be forwarded to the container so the tools to pull inside of atom will work.
 

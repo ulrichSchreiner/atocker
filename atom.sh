@@ -7,6 +7,12 @@ export GO_VENDOR=1
 /go/bin/gocode set package-lookup-mode go
 /go/bin/gocode set autobuild true
 
+if [ $1 = "gb" ]; then
+  # put vendor in gopath, so goimport works
+  export GOPATH=/work:/work/vendor:/devhome/go
+  /go/bin/gocode set package-lookup-mode gb
+fi
+
 if [ -f "/devhome/.atom/config.cson" ]; then
   # remove old config.cson from previous version
   rm -rf /devhome/.atom/config.cson
