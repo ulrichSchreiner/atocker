@@ -1,4 +1,4 @@
-FROM ubuntu:15.10
+FROM ubuntu:16.04
 MAINTAINER Ulrich Schreiner <ulrich.schreiner@gmail.com>
 
 RUN apt-get update && apt-get install -y \
@@ -27,7 +27,7 @@ RUN apt-get update && apt-get install -y \
     openssh-client \
     pandoc \
     python-dev \
-    python-pip \
+    pylint \
     wget \
     xdg-utils \
     xterm \
