@@ -84,7 +84,7 @@ do
 done
 
 // fix toolbar-almighty
-sed -i "s/icon: 'columns /icon: '/g" /devhome/.atom/packages/tool-bar-almighty/lib/entries.coffee
+sed -i "s/icon: 'columns fa-rotate-270'/icon: 'minus-square-o'/g" /devhome/.atom/packages/tool-bar-almighty/lib/entries.coffee
 
 mkdir -p /devhome/go && cd /devhome/go && mkdir src pkg bin
 
