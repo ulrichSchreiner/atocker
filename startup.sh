@@ -83,6 +83,9 @@ do
   fi
 done
 
+// fix toolbar-almighty
+sed -i "s/icon: 'columns /icon: '/g" /devhome/.atom/packages/tool-bar-almighty/lib/entries.coffee
+
 mkdir -p /devhome/go && cd /devhome/go && mkdir src pkg bin
 
 exec gosu $HOSTUSER bash -c "export PATH=/usr/local/go/bin:/go/bin:$PATH ATOM=$ATOM export LANG=$LANG && dbus-launch /devhome/atom.sh '$@'"
