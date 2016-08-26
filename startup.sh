@@ -50,6 +50,7 @@ PACKAGES=(
   "git-plus" \
   "git-time-machine" \
   "go-config" \
+  "go-debug" \
   "go-get" \
   "go-plus" \
   "go-signature-statusbar" \
