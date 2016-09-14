@@ -40,6 +40,7 @@ PACKAGES=(
   "atom-jinja2" \
   "atom-terminal" \
   "autocomplete-go" \
+  "auto-reveal-in-sidebar" \
   "builder-go" \
   "blame" \
   "environment" \
