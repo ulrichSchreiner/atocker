@@ -66,7 +66,7 @@ PACKAGES=(
   "minimap" \
   "minimap-bookmarks" \
   "minimap-find-and-replace" \
-  "navigator-godef" \
+  "navigator-go" \
   "react" \
   "rst-preview-pandoc" \
   "symbols-tree-view" \
