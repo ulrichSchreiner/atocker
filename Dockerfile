@@ -55,6 +55,7 @@ RUN GOPATH=/go PATH=/usr/local/go/bin:$PATH go get \
     golang.org/x/tools/cmd/gorename \
     golang.org/x/tools/cmd/gotype \
     golang.org/x/tools/cmd/stringer \
+    github.com/zmb3/gogetdoc \
     github.com/derekparker/delve/cmd/dlv && \
     GOPATH=/go PATH=/usr/local/go/bin:$PATH /go/bin/gometalinter --install --update  && \
     rm -rf /go/pkg/*
