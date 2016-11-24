@@ -30,6 +30,7 @@ RUN apt-get update && apt-get install -y \
     pandoc \
     python-dev \
     pylint \
+    shellcheck \
     wget \
     xdg-utils \
     xterm \
@@ -59,9 +60,9 @@ RUN GOPATH=/go PATH=/usr/local/go/bin:$PATH go get \
     golang.org/x/tools/cmd/stringer \
     github.com/zmb3/gogetdoc \
     github.com/derekparker/delve/cmd/dlv && \
-    GOPATH=/go PATH=/usr/local/go/bin:$PATH /go/bin/gometalinter --install --update  && \
+    GOPATH=/go PATH=/usr/local/go/bin:$PATH /go/bin/gometalinter --install && \
     rm -rf /go/pkg/*
-    
+
 
 RUN echo "PATH=/usr/local/go/bin:/go/bin:$PATH" > /etc/profile.d/go.sh
 RUN ln -sf /go/bin/* /usr/bin/
