@@ -43,7 +43,7 @@ RUN curl -sSL https://github.com/atom/atom/releases/download/v${ATOM_VERSION}/at
 	&& dpkg -i /tmp/atom-amd64.deb \
 	&& rm -rf /tmp/atom-amd64.deb
 
-ENV GO_VERSION 1.7.3
+ENV GO_VERSION 1.7.4
 RUN curl https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz |tar -C /usr/local -xz
 
 RUN mkdir /go && cd /go && mkdir src pkg bin
