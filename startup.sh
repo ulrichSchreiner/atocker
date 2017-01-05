@@ -39,9 +39,7 @@ ln -s /config/atocker$WORKSPACE/Atom /devhome/.config/Atom
 PACKAGES=(
   "atom-jinja2" \
   "atom-terminal" \
-  "autocomplete-go" \
   "auto-reveal-in-sidebar" \
-  "builder-go" \
   "blame" \
   "environment" \
   "file-icons" \
@@ -50,27 +48,21 @@ PACKAGES=(
   "git-log" \
   "git-plus" \
   "git-time-machine" \
-  "go-config" \
   "go-debug" \
-  "go-get" \
   "go-plus" \
   "go-signature-statusbar" \
-  "gofmt" \
-  "gorename" \
   "language-ansible" \
   "language-docker" \
   "language-protobuf" \
   "language-restructuredtext" \
-  "linter" "gometalinter-linter" \
+  "linter" \
   "merge-conflicts" \
   "minimap" \
   "minimap-bookmarks" \
   "minimap-find-and-replace" \
-  "navigator-go" \
   "react" \
   "rst-preview-pandoc" \
   "symbols-tree-view" \
-  "tester-go" \
   "tool-bar" \
   "tool-bar-almighty" \
 )

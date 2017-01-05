@@ -37,7 +37,7 @@ RUN apt-get update && apt-get install -y \
     --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
-ENV ATOM_VERSION 1.12.8
+ENV ATOM_VERSION 1.12.9
 
 RUN curl -sSL https://github.com/atom/atom/releases/download/v${ATOM_VERSION}/atom-amd64.deb -o /tmp/atom-amd64.deb \
 	&& dpkg -i /tmp/atom-amd64.deb \
@@ -50,17 +50,16 @@ RUN mkdir /go && cd /go && mkdir src pkg bin
 
 ENV GB_VERSION 0.4.1
 RUN GOPATH=/go PATH=/usr/local/go/bin:$PATH go get \
-    github.com/constabulary/gb/... \
-    github.com/alecthomas/gometalinter \
-    github.com/josharian/impl \
-    github.com/nsf/gocode \
-    github.com/rogpeppe/godef \
-    golang.org/x/tools/cmd/gorename \
-    golang.org/x/tools/cmd/gotype \
-    golang.org/x/tools/cmd/stringer \
     github.com/zmb3/gogetdoc \
-    github.com/derekparker/delve/cmd/dlv && \
-    GOPATH=/go PATH=/usr/local/go/bin:$PATH /go/bin/gometalinter --install && \
+    golang.org/x/tools/cmd/goimports \
+    golang.org/x/tools/cmd/gorename \
+    golang.org/x/tools/cmd/guru \
+    github.com/sqs/goreturns \
+    github.com/rogpeppe/godef \
+    github.com/nsf/gocode \
+    github.com/derekparker/delve/cmd/dlv \
+    github.com/alecthomas/gometalinter \
+    && GOPATH=/go PATH=/usr/local/go/bin:$PATH /go/bin/gometalinter --install && \
     rm -rf /go/pkg/*
 
 
