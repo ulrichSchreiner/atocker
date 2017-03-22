@@ -68,12 +68,30 @@ _atocker() {
     -e WORKSPACE=`pwd` \
     quay.io/ulrichschreiner/atocker "$1"
 }
-alias gbatom=_atocker gb
 alias atm="_atocker"
 ```
 Note: If you have private repositories where you need your SSH keys, start an agent before starting `atocker` and add your keys with `ssh-add`. The agent will be forwarded to the container so the tools to pull inside of atom will work.
 
-Now you can use `gbatom` to start an atom editor where the needed filesystem layout will be created if it does not exist. You can also use `atm` to start a Atom editor in the current working directory without creating `src` and `vendor/src` directories. When using in `go` mode, the startup script will also create a symlink in the vendor's package directory so the standard go tools will work. Please do not delete this link!
+You can use `atm` to start a Atom editor in the current working directory without creating `src` and `vendor/src` directories. When using in `go` mode, the startup script will also create a symlink in the vendor's package directory so the standard go tools will work. Please do not delete this link!
+
+## Configuration
+
+If you have more than one computer where you regularly working, you can use a service like dropbox to store your configs. In such a case you can start the editor with a config:
+```
+...
+-v $HOME/Dropbox/appconfig:/config \
+...
+```
+
+Now the configuration of your editor will be stored inside your `appconfig` directory on dropbox. Please note that this can be a lot of space! 
+
+Another configuration option is the directory name for your workspace. With the given configuration every directory will be mapped into the `config` directory as a complete path. So for example the directory `/home/myuser/workspace/atocker` will be saved in `/config/home/myuser/workspace/atocker`. This will be ok most of the time. But if you are using different computers and on them different userid's the part `myuser` will be different on every computer. 
+
+In this case, i'm using dropbox to sync my configuration and i also change the `WORKSPACE` variable to this:
+```
+-e WORKSPACE=`pwd | cut --complement -d / -n -f 2,3` \
+```
+so now the part with `/home/myuser` will be cut of and my workspace path does not include my userid. 
 
 ## Included Plugins
 
