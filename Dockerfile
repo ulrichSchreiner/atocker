@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:17.04
 MAINTAINER Ulrich Schreiner <ulrich.schreiner@gmail.com>
 
 RUN apt-get update && apt-get install -y \
@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y \
     bzr \
     ca-certificates \
     curl \
+    dbus-x11 \
     gconf2 \
     gconf-service \
     git \
@@ -13,6 +14,7 @@ RUN apt-get update && apt-get install -y \
     mercurial \
     libasound2 \
     libcanberra-gtk-module \
+    libcap2 \
     libexif-dev \
     libgl1-mesa-dri \
     libgl1-mesa-glx \
@@ -26,6 +28,7 @@ RUN apt-get update && apt-get install -y \
     libxkbfile1 \
     libxss1 \
     libxtst6 \
+    locales \
     openssh-client \
     pandoc \
     python-dev \
@@ -35,38 +38,13 @@ RUN apt-get update && apt-get install -y \
     xdg-utils \
     xterm \
     --no-install-recommends \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/*
 
 ENV ATOM_VERSION 1.16.0
-
 RUN curl -sSL https://github.com/atom/atom/releases/download/v${ATOM_VERSION}/atom-amd64.deb -o /tmp/atom-amd64.deb \
-	&& dpkg -i /tmp/atom-amd64.deb \
-	&& rm -rf /tmp/atom-amd64.deb
-
-ENV GO_VERSION 1.8.1
-RUN curl https://storage.googleapis.com/golang/go${GO_VERSION}.linux-amd64.tar.gz |tar -C /usr/local -xz
-
-RUN mkdir /go && cd /go && mkdir src pkg bin
-
-ENV GB_VERSION 0.4.1
-RUN GOPATH=/go PATH=/usr/local/go/bin:$PATH go get \
-    github.com/zmb3/gogetdoc \
-    golang.org/x/tools/cmd/goimports \
-    golang.org/x/tools/cmd/gorename \
-    golang.org/x/tools/cmd/guru \
-    github.com/sqs/goreturns \
-    github.com/rogpeppe/godef \
-    github.com/nsf/gocode \
-    github.com/derekparker/delve/cmd/dlv \
-    github.com/alecthomas/gometalinter \
-    && GOPATH=/go PATH=/usr/local/go/bin:$PATH /go/bin/gometalinter --install && \
-    rm -rf /go/pkg/*
-
-
-RUN echo "PATH=/usr/local/go/bin:/go/bin:$PATH" > /etc/profile.d/go.sh
-RUN ln -sf /go/bin/* /usr/bin/
-
-RUN curl -o /usr/bin/gosu -sSL "https://github.com/tianon/gosu/releases/download/1.7/gosu-$(dpkg --print-architecture)" && chmod +x /usr/bin/gosu
+    && dpkg -i /tmp/atom-amd64.deb \
+    && rm -rf /tmp/atom-amd64.deb \
+    && curl -o /usr/bin/gosu -sSL "https://github.com/tianon/gosu/releases/download/1.7/gosu-$(dpkg --print-architecture)" && chmod +x /usr/bin/gosu
 
 RUN mkdir /devhome
 COPY startup.sh /devhome/startup.sh

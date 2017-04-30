@@ -48,9 +48,6 @@ PACKAGES=(
   "git-log" \
   "git-plus" \
   "git-time-machine" \
-  "go-debug" \
-  "go-plus" \
-  "go-signature-statusbar" \
   "language-ansible" \
   "language-docker" \
   "language-protobuf" \
@@ -67,6 +64,11 @@ PACKAGES=(
   "tool-bar-almighty" \
 )
 
+UNINSTALL=(
+  "go-debug" \
+  "go-plus" \
+  "go-signature-statusbar"
+)
 
 for p in "${PACKAGES[@]}"
 do
@@ -77,6 +79,11 @@ do
   fi
 done
 
-mkdir -p /devhome/go && cd /devhome/go && mkdir src pkg bin
+for p in "${UNINSTALL[@]}"
+do
+  if [ -d "/devhome/.atom/packages/$p" ]; then
+    gosu $HOSTUSER $APM uninstall $p
+  fi
+done
 
 exec gosu $HOSTUSER bash -c "export PATH=/usr/local/go/bin:/go/bin:$PATH ATOM=$ATOM export LANG=$LANG && dbus-launch /devhome/atom.sh '$@'"

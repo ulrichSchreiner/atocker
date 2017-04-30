@@ -1,45 +1,13 @@
 # atocker
-Atom 1.8 Editor with go-tools bundled in Docker.
+Atom 1.8 Editor bundled in Docker.
 
 ![Screenshot](screenshot.png)
 
-This docker image contains [atom](http://atom.io), [go-plus](https://github.com/joefitzgerald/go-plus)  and many go tools. The configuration conforms to a standard *GOPATH* filesystem layout. Earliear Versions of
-**atocker** used the directory layout of [gb](http://getgb.io/); with Go 1.6 vendoring is a part of
-Go itself, so imho it is not needed any more to use sepearate directories for specific projects. If you want `gb` support, you should start `atocker` with `gb` as parametern. In this case, the script will put then `/work/vendor` directory in the `GOPATH` and most of the go-tools should work.
+**Please note: I removed all go plugins from this docker image because i use
+[VisualStudio Code](https://github.com/ulrichSchreiner/vsc) for my go development.** This Image now uninstalls all `go` plugins because otherwise you will receive errors from the plugins that the needed tools are note installed.
 
-You can start the editor in any empty directory and this will be used as the single *GOPATH*. So if you want to
-develop for [docker](https://github.com/docker/docker) it would be ok to have a directory tree like this:
-```
-~/development
-+--src
-   +--github.com
-      +--docker
-         +-- (clone https://github.com/docker/docker)
-   +--bitbucket.org
-   ...
-+--pkg
-+--bin
-```
 
-In this scenario you should set `GOPATH` to `~/development` and your Go tools should work. If this
-variable is exported it is also possible to use `go get ...` to fetch the desired Go repositories. No start
-`atocker` inside of your `~/development` directory.
-
-## Vendoring
-
-There are many tools for Go vendoring; the tool inside the container is [glide](http://glide.sh), although
-it is not needed by the container itself. Please note that `glide` (or `gpm` or `gvp`) is needed
-**outside** of the container! When working on a Go project you should add your dependencies with theses
-tools, so you should **not** do a `go get github.com/fsouza/go-dockerclient` because in this case the
-dependency will be installed in your `GOPATH` and will be visible for all your projects. You should use
-`glide get github.com/fsouza/go-dockerclient` instead (if you use glide); performing this command
-in your project (which sould be initialized with `glide`) you will have a directory named `vendor`
-which will contain the needed dependency.
-
-This `vendor` mechanism is now a standard in Go (with 1.5 it was only an experiment); and so it is much
-easiear to work with one single `GOPATH` than it was before
-
-## Configurtation
+## Configuration
 Please note: When using the given start script (or alias) the settings and plugins of the editor will be stored in your
 `$HOME/.config/atocker/<workspacepath>` directory. All plugins will be in your `$HOME/.config/atocker/.atom/packages` folder.
 
@@ -72,8 +40,6 @@ alias atm="_atocker"
 ```
 Note: If you have private repositories where you need your SSH keys, start an agent before starting `atocker` and add your keys with `ssh-add`. The agent will be forwarded to the container so the tools to pull inside of atom will work.
 
-You can use `atm` to start a Atom editor in the current working directory without creating `src` and `vendor/src` directories. When using in `go` mode, the startup script will also create a symlink in the vendor's package directory so the standard go tools will work. Please do not delete this link!
-
 ## Configuration
 
 If you have more than one computer where you regularly working, you can use a service like dropbox to store your configs. In such a case you can start the editor with a config:
@@ -83,37 +49,17 @@ If you have more than one computer where you regularly working, you can use a se
 ...
 ```
 
-Now the configuration of your editor will be stored inside your `appconfig` directory on dropbox. Please note that this can be a lot of space! 
+Now the configuration of your editor will be stored inside your `appconfig` directory on dropbox. Please note that this can be a lot of space!
 
-Another configuration option is the directory name for your workspace. With the given configuration every directory will be mapped into the `config` directory as a complete path. So for example the directory `/home/myuser/workspace/atocker` will be saved in `/config/home/myuser/workspace/atocker`. This will be ok most of the time. But if you are using different computers and on them different userid's the part `myuser` will be different on every computer. 
+Another configuration option is the directory name for your workspace. With the given configuration every directory will be mapped into the `config` directory as a complete path. So for example the directory `/home/myuser/workspace/atocker` will be saved in `/config/home/myuser/workspace/atocker`. This will be ok most of the time. But if you are using different computers and on them different userid's the part `myuser` will be different on every computer.
 
 In this case, i'm using dropbox to sync my configuration and i also change the `WORKSPACE` variable to this:
 ```
 -e WORKSPACE=`pwd | cut --complement -d / -n -f 2,3` \
 ```
-so now the part with `/home/myuser` will be cut of and my workspace path does not include my userid. 
+so now the part with `/home/myuser` will be cut of and my workspace path does not include my userid.
 
-## Included Plugins
-
-- [blame](https://atom.io/packages/blame)
-- [file-icons](https://atom.io/packages/file-icons)
-- [git-control](https://atom.io/packages/git-control)
-- [git-history](https://atom.io/packages/git-history)
-- [git-log](https://atom.io/packages/git-log)
-- [git-plus](https://atom.io/packages/git-plus)
-- [go-plus](https://atom.io/packages/go-plus)
-- [go-rename](https://atom.io/packages/go-rename)
-- [language-docker](https://atom.io/packages/language-docker)
-- [language-protobuf](https://atom.io/packages/language-protobuf)
-- [merge-conflicts](https://atom.io/packages/merge-conflicts)
-- [minimap](https://atom.io/packages/minimap)
-- [minimap-bookmarks](https://atom.io/packages/minimap-bookmarks)
-- [minimap-find-and-replace](https://atom.io/packages/minimap-find-and-replace)
-- [react](https://atom.io/packages/react)
-- [symbols-tree-view](https://atom.io/packages/symbols-tree-view)
-- [tool-bar](https://atom.io/packages/tool-bar)
-- [tool-bar-almighty](https://atom.io/packages/too-bar-almighty)
-
+## Notes
 Please note: For `git` you need your correct git configuration. In my example i mount my `$HOME/.gitconfig` into the container.
 
 ## See also
