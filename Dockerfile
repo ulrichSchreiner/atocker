@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     bzr \
     ca-certificates \
+    chromium-browser \
     curl \
     dbus-x11 \
     gconf2 \
