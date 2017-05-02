@@ -40,6 +40,20 @@ alias atm="_atocker"
 ```
 Note: If you have private repositories where you need your SSH keys, start an agent before starting `atocker` and add your keys with `ssh-add`. The agent will be forwarded to the container so the tools to pull inside of atom will work.
 
+## Browser support
+
+The image contains a `chromium-browser` which will be used when clicking on a link. If this does not work and your console shows security problems, you can consider adding the startup options:
+```
+--security-opt=seccomp:unconfined
+```
+to the container. Please be aware that it would be better to only allow specific capabilities. But it is real hard to find out what is needed.
+
+If your container complains about problems connecting to dbus, you can add
+```
+--privileged
+```
+also.
+
 ## Configuration
 
 If you have more than one computer where you regularly working, you can use a service like dropbox to store your configs. In such a case you can start the editor with a config:
