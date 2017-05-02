@@ -43,6 +43,7 @@ PACKAGES=(
   "blame" \
   "environment" \
   "file-icons" \
+  "firacode" \
   "git-control" \
   "git-history" \
   "git-log" \
