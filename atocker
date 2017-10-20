@@ -16,4 +16,5 @@ docker run  \
     -e HOSTUSERID=`id -u` \
     -e HOSTGROUPID=`id -g` \
     -e WORKSPACE=`pwd` \
+    -e DISABLE_GPU="--disable-gpu" \
     quay.io/ulrichschreiner/atocker "$@"

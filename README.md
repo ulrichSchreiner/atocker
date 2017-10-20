@@ -34,6 +34,7 @@ _atocker() {
     -e HOSTUSERID=`id -u` \
     -e HOSTGROUPID=`id -g` \
     -e WORKSPACE=`pwd` \
+    -e DISABLE_GPU="--disable-gpu" \
     quay.io/ulrichschreiner/atocker "$1"
 }
 alias atm="_atocker"
@@ -53,6 +54,10 @@ If your container complains about problems connecting to dbus, you can add
 --privileged
 ```
 also.
+
+## GPU Rendering
+
+On many graphics cards the GPU rendering is buggy. You can add the environment `-e DISABLE_GPU="--disable-gpu"` to the container if you have glitches or a black main window.
 
 ## Configuration
 
