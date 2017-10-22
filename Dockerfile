@@ -1,4 +1,4 @@
-FROM ubuntu:17.04
+FROM ubuntu:17.10
 MAINTAINER Ulrich Schreiner <ulrich.schreiner@gmail.com>
 
 RUN apt-get update && apt-get install -y \
