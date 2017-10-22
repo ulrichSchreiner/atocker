@@ -9,8 +9,4 @@ if [ ! -f "/config/atocker/config.cson" ]; then
 fi
 ln -s /config/atocker/config.cson /devhome/.atom/config.cson
 
-if [ ! -d "/devhome/.atom/storage" ]; then
 cd /work && $ATOM --foreground $DISABLE_GPU .
-else
-cd /work && $ATOM --foreground $DISABLE_GPU
-fi
