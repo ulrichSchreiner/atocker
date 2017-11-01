@@ -41,7 +41,7 @@ RUN apt-get update && apt-get install -y \
     --no-install-recommends \
     && rm -rf /var/lib/apt/*
 
-ENV ATOM_VERSION 1.21.1
+ENV ATOM_VERSION 1.21.2
 RUN curl -sSL https://github.com/atom/atom/releases/download/v${ATOM_VERSION}/atom-amd64.deb -o /tmp/atom-amd64.deb \
     && dpkg -i /tmp/atom-amd64.deb \
     && rm -rf /tmp/atom-amd64.deb \
