@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y \
     libnotify4 \
     libnss3 \
     libpango-1.0-0 \
+    libsecret-1-dev \
     libv4l-0 \
     libxkbfile1 \
     libxss1 \
@@ -41,13 +42,13 @@ RUN apt-get update && apt-get install -y \
     --no-install-recommends \
     && rm -rf /var/lib/apt/*
 
-ENV ATOM_VERSION 1.22.0
+ENV ATOM_VERSION 1.22.1
 RUN curl -sSL https://github.com/atom/atom/releases/download/v${ATOM_VERSION}/atom-amd64.deb -o /tmp/atom-amd64.deb \
     && dpkg -i /tmp/atom-amd64.deb \
     && rm -rf /tmp/atom-amd64.deb \
     && curl -o /usr/bin/gosu -sSL "https://github.com/tianon/gosu/releases/download/1.7/gosu-$(dpkg --print-architecture)" && chmod +x /usr/bin/gosu
 
-RUN mkdir /devhome
+RUN mkdir /devhome && /usr/share/atom/resources/app/apm/bin/npm i keytar
 COPY startup.sh /devhome/startup.sh
 COPY atom.sh /devhome/atom.sh
 COPY config.cson /devhome/config.cson

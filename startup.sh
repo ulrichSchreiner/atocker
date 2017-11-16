@@ -61,6 +61,7 @@ PACKAGES=(
   "react" \
   "rst-preview-pandoc" \
   "symbols-tree-view" \
+  "teletype" \
   "tool-bar" \
   "tool-bar-almighty" \
 )
