@@ -1,6 +1,8 @@
 FROM ubuntu:17.10
 MAINTAINER Ulrich Schreiner <ulrich.schreiner@gmail.com>
 
+ENV ATOM_VERSION 1.24.0
+
 RUN apt-get update && apt-get install -y \
     build-essential \
     bzr \
@@ -42,7 +44,6 @@ RUN apt-get update && apt-get install -y \
     --no-install-recommends \
     && rm -rf /var/lib/apt/*
 
-ENV ATOM_VERSION 1.23.3
 RUN curl -sSL https://github.com/atom/atom/releases/download/v${ATOM_VERSION}/atom-amd64.deb -o /tmp/atom-amd64.deb \
     && dpkg -i /tmp/atom-amd64.deb \
     && rm -rf /tmp/atom-amd64.deb \
