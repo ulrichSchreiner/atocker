@@ -1,7 +1,7 @@
 FROM ubuntu:17.10
 MAINTAINER Ulrich Schreiner <ulrich.schreiner@gmail.com>
 
-ENV ATOM_VERSION 1.25.1
+ENV ATOM_VERSION 1.26.0
 
 RUN apt-get update && apt-get install -y \
     build-essential \
