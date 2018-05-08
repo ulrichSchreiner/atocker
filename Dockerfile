@@ -1,4 +1,4 @@
-FROM ubuntu:17.10
+FROM ubuntu:18.04
 MAINTAINER Ulrich Schreiner <ulrich.schreiner@gmail.com>
 
 ENV ATOM_VERSION 1.26.1
