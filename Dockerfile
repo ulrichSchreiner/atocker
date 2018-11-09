@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 MAINTAINER Ulrich Schreiner <ulrich.schreiner@gmail.com>
 
-ENV ATOM_VERSION 1.32.1
+ENV ATOM_VERSION 1.32.2
 
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -49,7 +49,7 @@ RUN curl -sSL https://github.com/atom/atom/releases/download/v${ATOM_VERSION}/at
     && rm -rf /tmp/atom-amd64.deb \
     && curl -o /usr/bin/gosu -sSL "https://github.com/tianon/gosu/releases/download/1.7/gosu-$(dpkg --print-architecture)" && chmod +x /usr/bin/gosu
 
-RUN mkdir /devhome && /usr/share/atom/resources/app/apm/bin/npm i keytar
+RUN mkdir /devhome 
 COPY startup.sh /devhome/startup.sh
 COPY atom.sh /devhome/atom.sh
 COPY config.cson /devhome/config.cson
