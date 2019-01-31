@@ -60,7 +60,6 @@ PACKAGES=(
   "minimap-find-and-replace" \
   "react" \
   "rst-preview-pandoc" \
-  "symbols-tree-view" \
   "tool-bar" \
   "tool-bar-almighty" \
 )
