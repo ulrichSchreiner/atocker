@@ -35,6 +35,7 @@ RUN apt-get update && apt-get install -y \
     locales \
     openssh-client \
     pandoc \
+    policykit-1 \
     python-dev \
     pylint \
     shellcheck \
