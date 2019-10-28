@@ -1,7 +1,7 @@
 FROM ubuntu:19.04
 MAINTAINER Ulrich Schreiner <ulrich.schreiner@gmail.com>
 
-ENV ATOM_VERSION 1.40.1
+ENV ATOM_VERSION 1.41.0
 
 RUN apt-get update && apt-get install -y \
     build-essential \
