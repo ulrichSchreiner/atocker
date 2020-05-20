@@ -1,13 +1,12 @@
-FROM ubuntu:19.04
+FROM ubuntu:20.04
 MAINTAINER Ulrich Schreiner <ulrich.schreiner@gmail.com>
 
-ENV ATOM_VERSION 1.44.0
+ENV ATOM_VERSION 1.47.0
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     build-essential \
     bzr \
     ca-certificates \
-    chromium-browser \
     curl \
     dbus-x11 \
     gconf2 \
@@ -22,8 +21,8 @@ RUN apt-get update && apt-get install -y \
     libgl1-mesa-dri \
     libgl1-mesa-glx \
     libgconf-2-4 \
-    libgnome-keyring-dev \
     libgtk2.0-0 \
+    libgtk-3-0 \
     libnotify4 \
     libnss3 \
     libpango-1.0-0 \
