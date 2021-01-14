@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 MAINTAINER Ulrich Schreiner <ulrich.schreiner@gmail.com>
 
-ENV ATOM_VERSION 1.51.0
+ENV ATOM_VERSION 1.54.0
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     build-essential \
